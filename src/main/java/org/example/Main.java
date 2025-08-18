@@ -1,6 +1,7 @@
 package org.example;
 import java.util.Scanner;
-
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 //testar
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +10,13 @@ public class Main {
 
         System.out.print("Nome do titular: ");
         String nome = sc.nextLine();
+
+// enquanto for vazio, só espaços ou apenas números, pede de novo
+        while (StringUtils.isBlank(nome) || StringUtils.isNumeric(nome)) {
+            System.out.println("Nome inválido! Digite novamente:");
+            nome = sc.nextLine();
+        }
+
         Conta conta = banco.criarConta(nome);
         while (true) {
             System.out.println("\n1 - Ver saldo\n2 - Depositar\n3 - Sacar\n4 - Sair");
