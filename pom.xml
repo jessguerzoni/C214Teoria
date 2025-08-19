@@ -14,13 +14,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
 
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency><!-- Exemplo de dependência útil e simples -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
