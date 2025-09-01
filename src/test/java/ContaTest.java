@@ -14,9 +14,9 @@ class ContaTest {
     @Test
     void sacarComSaldoInsuficiente() {
         Conta conta = new Conta("TESTE");
-        conta.depositar(100.0); // saldo inicial
+        conta.depositar(100.0);
 
-        boolean resultado = conta.sacar(150.0); // tenta sacar mais do que tem
+        boolean resultado = conta.sacar(200.0);
 
         assertFalse(resultado, "Saldo Insuficiente");
         assertEquals(100.0, conta.getSaldo(), "O saldo não deve mudar quando o saque falha");
@@ -50,7 +50,35 @@ class ContaTest {
         void testNomeVazio() {
             assertFalse(Validador.validarNome(""));
             }
-        }
+
+    @Test
+    void sacarValorExato() {
+        Conta conta = new Conta("TESTE");
+        conta.depositar(100.0);
+        boolean resultado = conta.sacar(100.0);
+        assertTrue(resultado);
+        assertEquals(0.0, conta.getSaldo());
+    }
+
+    @Test
+    void sacarValorNegativo() {
+        Conta conta = new Conta("TESTE");
+        conta.depositar(100.0);
+        boolean resultado = conta.sacar(-120.0);
+        assertFalse(resultado, "Saque negativo não deve ser permitido");
+        assertEquals(100.0, conta.getSaldo());
+    }
+
+    @Test
+    void depositarValorPositivo() {
+        Conta conta = new Conta("TESTE");
+        conta.depositar(150.0);
+        assertEquals(150.0, conta.getSaldo());
+    }
+
+
+}
+
 
 
 
