@@ -8,6 +8,11 @@
     <groupId>banco</groupId>
     <artifactId>banco-simples</artifactId>
     <version>1.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>github</module>
+        <module>github/workflows</module>
+    </modules>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -49,3 +54,13 @@
         </plugins>
     </build>
 </project>
+
+<reporting>
+<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>3.0.0</version>
+    </plugin>
+</plugins>
+</reporting>
